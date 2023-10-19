@@ -2,7 +2,7 @@ extends Control
 
 # wir deklarieren uns eine Variable in der die Zufallszahl gespeichert wird
 var computer_number
-# wir deklarieren und eine Wariable in der die geratene Zahl gespeichert wird
+# wir deklarieren uns eine Variable in der die geratene Zahl gespeichert wird
 var guessed_number
 
 # Called when the node enters the scene tree for the first time.
