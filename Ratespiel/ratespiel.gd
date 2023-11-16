@@ -19,6 +19,10 @@ func _on_button_pressed():
 	guessed_number = $SpinBox.value
 	# Vergleiche die computerzahl  mit der geratenen Zahl
 	if (computer_number == guessed_number):
-		print("richtig!")
-	else:
-		print("falsch")
+		$Infolabel.text = "richtig"
+	elif (computer_number > guessed_number):
+		$Infolabel.text = "Zahl muss größer sein"
+		print("Zahl muss größer sein")
+	elif (computer_number < guessed_number):
+		$Infolabel.text = "Zahl muss kleiner sein"
+		print("Zahl muss kleiner sein")
