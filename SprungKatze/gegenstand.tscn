@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://u6ni2wqwvnyr"]
+[gd_scene load_steps=32 format=3 uid="uid://u6ni2wqwvnyr"]
 
 [ext_resource type="Script" path="res://gegenstand.gd" id="1_7w7hm"]
 [ext_resource type="Texture2D" uid="uid://obmcx024k4ch" path="res://Assets/grafik/obstacles/couch/c1.png" id="2_01now"]
@@ -9,6 +9,26 @@
 [ext_resource type="Texture2D" uid="uid://dyseax2ooysq2" path="res://Assets/grafik/obstacles/family/2.png" id="7_c3iwx"]
 [ext_resource type="Texture2D" uid="uid://dgv6srhiw20nh" path="res://Assets/grafik/obstacles/family/3.png" id="8_w7uo7"]
 [ext_resource type="Texture2D" uid="uid://bwkv22cwltb75" path="res://Assets/grafik/obstacles/family/4.png" id="9_5yb4q"]
+[ext_resource type="Texture2D" uid="uid://ddboiktj73iqa" path="res://Assets/grafik/obstacles/kittens/k1.png" id="10_p4qtm"]
+[ext_resource type="Texture2D" uid="uid://b1rg4u425ktk" path="res://Assets/grafik/obstacles/kittens/k2.png" id="11_vx8p0"]
+[ext_resource type="Texture2D" uid="uid://em7hs70xp8mb" path="res://Assets/grafik/obstacles/kittens/k3.png" id="12_kbft4"]
+[ext_resource type="Texture2D" uid="uid://cqkcx6xvea7n4" path="res://Assets/grafik/obstacles/kittens/k4.png" id="13_l8gaa"]
+[ext_resource type="Texture2D" uid="uid://d0qow4a8b2kg6" path="res://Assets/grafik/obstacles/maru/m1.png" id="14_qfe73"]
+[ext_resource type="Texture2D" uid="uid://dmnwi3x0ug16x" path="res://Assets/grafik/obstacles/maru/m2.png" id="15_y8vap"]
+[ext_resource type="Texture2D" uid="uid://doqg2aggkkgch" path="res://Assets/grafik/obstacles/maru/m3.png" id="16_y72gp"]
+[ext_resource type="Texture2D" uid="uid://tsgidsxgnjcv" path="res://Assets/grafik/obstacles/maru/m4.png" id="17_m12u3"]
+[ext_resource type="Texture2D" uid="uid://pge01llxfr7x" path="res://Assets/grafik/obstacles/pile/p1.png" id="18_kdb0j"]
+[ext_resource type="Texture2D" uid="uid://dqnx7gb5jtsv3" path="res://Assets/grafik/obstacles/pile/p2.png" id="19_cb2pp"]
+[ext_resource type="Texture2D" uid="uid://b0hq287sd1rj2" path="res://Assets/grafik/obstacles/pile/p3.png" id="20_cu558"]
+[ext_resource type="Texture2D" uid="uid://d4nswhr0u7k2d" path="res://Assets/grafik/obstacles/pile/p4.png" id="21_5w2u6"]
+[ext_resource type="Texture2D" uid="uid://dvm2fh056ju4l" path="res://Assets/grafik/obstacles/pizza/p1.png" id="22_l2oyx"]
+[ext_resource type="Texture2D" uid="uid://cekpdgjlb7tca" path="res://Assets/grafik/obstacles/pizza/p2.png" id="23_sp5a0"]
+[ext_resource type="Texture2D" uid="uid://c6om1j7uesrs3" path="res://Assets/grafik/obstacles/pizza/p3.png" id="24_n04my"]
+[ext_resource type="Texture2D" uid="uid://biovpenwfew3r" path="res://Assets/grafik/obstacles/pizza/p4.png" id="25_ekquy"]
+[ext_resource type="Texture2D" uid="uid://timlewrtflg0" path="res://Assets/grafik/obstacles/sloth/s1.png" id="26_0w017"]
+[ext_resource type="Texture2D" uid="uid://bib0kyrp28hpn" path="res://Assets/grafik/obstacles/sloth/s2.png" id="27_2eq8g"]
+[ext_resource type="Texture2D" uid="uid://byoa6q3sxwykf" path="res://Assets/grafik/obstacles/sloth/s3.png" id="28_51dyj"]
+[ext_resource type="Texture2D" uid="uid://c761ekquo6ukm" path="res://Assets/grafik/obstacles/sloth/s4.png" id="29_b6wgy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_12kox"]
 animations = [{
@@ -45,6 +65,91 @@ animations = [{
 "loop": true,
 "name": &"family",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_p4qtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vx8p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kbft4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l8gaa")
+}],
+"loop": true,
+"name": &"kittens",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_qfe73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_y8vap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y72gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m12u3")
+}],
+"loop": true,
+"name": &"maru",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_kdb0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cb2pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cu558")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5w2u6")
+}],
+"loop": true,
+"name": &"pile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_l2oyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_sp5a0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_n04my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ekquy")
+}],
+"loop": true,
+"name": &"pizza",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_0w017")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2eq8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_51dyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_b6wgy")
+}],
+"loop": true,
+"name": &"sloth",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wrd7d"]
@@ -58,8 +163,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_12kox")
-animation = &"couch"
-frame_progress = 0.55662
+animation = &"sloth"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

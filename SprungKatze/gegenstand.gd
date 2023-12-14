@@ -1,10 +1,11 @@
 extends Area2D
 
+const ANIMATIONS = ["couch", "family", "kittens", "maru", "pile", "pizza", "sloth"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	# eine zufällig ausgewählte Animation wird dem Gegenstand zugewiesen und gestartet
+	$AnimatedSprite2D.play(ANIMATIONS.pick_random())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
