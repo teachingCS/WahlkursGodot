@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbyrk2co8nw3h"]
+
+[ext_resource type="Script" path="res://Weihnachtswelt/weihnachtswelt.gd" id="1_vnhit"]
+[ext_resource type="Texture2D" uid="uid://ccir3x823iik2" path="res://grafik_und_sound/backgroundEmpty.png" id="2_w0vsn"]
+[ext_resource type="Texture2D" uid="uid://s7rxhqvxbe2s" path="res://grafik_und_sound/treePineSnow.png" id="3_axp0c"]
+[ext_resource type="Texture2D" uid="uid://cvbtmej1wvm3h" path="res://grafik_und_sound/geschenk1.png" id="4_cg4oj"]
+[ext_resource type="Texture2D" uid="uid://cgpnvqib3h2hk" path="res://grafik_und_sound/geschenk2.png" id="5_3kvg6"]
+[ext_resource type="Texture2D" uid="uid://bdur2kw8pw8qu" path="res://grafik_und_sound/geschenk3.png" id="6_pohtt"]
+[ext_resource type="Texture2D" uid="uid://c7lcrebi6jbcf" path="res://grafik_und_sound/geschenk4.png" id="7_8qtpm"]
+[ext_resource type="AudioStream" uid="uid://co6gqf5y003t8" path="res://grafik_und_sound/We Wish You A Merry Christmas - QuickSounds.com.mp3" id="8_iah4b"]
+
+[node name="Weihnachtswelt" type="Node2D"]
+script = ExtResource("1_vnhit")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(0.75, 0.75)
+transform = Transform2D(0.75, 0, 0, 0.75, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_w0vsn")
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_iah4b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 384.0
+offset_top = 563.0
+offset_right = 853.0
+offset_bottom = 626.0
+metadata/_edit_group_ = true
+
+[node name="ButtonBaum" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Baum"
+
+[node name="ButtonGeschenke" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Geschenke"
+
+[node name="ButtonMusik" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Musik"
+
+[node name="Weihnachtsbaum" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(641, 281)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("3_axp0c")
+
+[node name="Geschenke" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Geschenk1" type="Sprite2D" parent="Geschenke"]
+position = Vector2(761, 369)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cg4oj")
+
+[node name="Geschenk2" type="Sprite2D" parent="Geschenke"]
+position = Vector2(757, 321)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_3kvg6")
+
+[node name="Geschenk3" type="Sprite2D" parent="Geschenke"]
+position = Vector2(758, 449)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_pohtt")
+
+[node name="Geschenk4" type="Sprite2D" parent="Geschenke"]
+position = Vector2(495, 448)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_8qtpm")
+
+[connection signal="pressed" from="HBoxContainer/ButtonBaum" to="." method="_on_button_baum_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonGeschenke" to="." method="_on_button_geschenke_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonMusik" to="." method="_on_button_musik_pressed"]

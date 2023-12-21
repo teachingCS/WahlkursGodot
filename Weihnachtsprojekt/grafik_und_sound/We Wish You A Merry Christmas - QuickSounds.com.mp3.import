@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co6gqf5y003t8"
+path="res://.godot/imported/We Wish You A Merry Christmas - QuickSounds.com.mp3-dc9386ed2d5ab0f8ed6e5f1430219521.mp3str"
+
+[deps]
+
+source_file="res://grafik_und_sound/We Wish You A Merry Christmas - QuickSounds.com.mp3"
+dest_files=["res://.godot/imported/We Wish You A Merry Christmas - QuickSounds.com.mp3-dc9386ed2d5ab0f8ed6e5f1430219521.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
