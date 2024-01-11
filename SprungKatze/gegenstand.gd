@@ -15,3 +15,7 @@ func _process(delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	# damit das Objekt gelöscht wird, wenn es nicht mehr sichtbar ist
 	queue_free()
+
+
+func _on_body_entered(body):
+	get_tree().change_scene_to_file("res://menu.tscn")
