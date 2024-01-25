@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkai6gq0h5kxs"]
+[gd_scene load_steps=5 format=3 uid="uid://dkai6gq0h5kxs"]
 
 [ext_resource type="Script" path="res://welt.gd" id="1_6iqg6"]
 [ext_resource type="PackedScene" uid="uid://d1ct5q037sg5h" path="res://player.tscn" id="1_7tphw"]
+[ext_resource type="FontFile" uid="uid://clyhvsahsjrcl" path="res://Assets/grafik/other/Big_Bottom_Typeface_Normal.ttf" id="3_yisgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnd5y"]
 size = Vector2(317, 20)
@@ -34,8 +35,22 @@ metadata/_edit_group_ = true
 position = Vector2(148.5, 0)
 shape = SubResource("RectangleShape2D_bnd5y")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 490.0
+offset_top = -18.0
+offset_right = 632.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_yisgi")
+theme_override_font_sizes/font_size = 30
+text = "Score: "
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
