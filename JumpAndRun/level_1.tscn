@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://dubaffnrr6j44"]
+
+[ext_resource type="Texture2D" uid="uid://c721hlusj5g2j" path="res://icon.svg" id="1_m435i"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_mhrte"]
+[ext_resource type="PackedScene" uid="uid://dox4qdirog56t" path="res://spieler.tscn" id="2_4v35e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdi4q"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ohat"]
+size = Vector2(42, 42)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_mhrte")
+
+[node name="Boden" type="Node" parent="."]
+
+[node name="Boden1" type="StaticBody2D" parent="Boden"]
+position = Vector2(1504, 240)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden1"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden1"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Boden2" type="StaticBody2D" parent="Boden"]
+position = Vector2(88, 512)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden2"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden2"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Boden3" type="StaticBody2D" parent="Boden"]
+position = Vector2(360, 448)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden3"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden3"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Boden4" type="StaticBody2D" parent="Boden"]
+position = Vector2(656, 496)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden4"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden4"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Boden5" type="StaticBody2D" parent="Boden"]
+position = Vector2(1176, 320)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden5"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden5"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Boden6" type="StaticBody2D" parent="Boden"]
+position = Vector2(896, 368)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden6"]
+shape = SubResource("RectangleShape2D_mdi4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden6"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_m435i")
+
+[node name="Spieler" parent="." instance=ExtResource("2_4v35e")]
+position = Vector2(96, 80)
+
+[node name="Ziel" type="Area2D" parent="."]
+position = Vector2(1480, 88)
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Ziel"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.690196, 0.556863, 0.34902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ziel"]
+position = Vector2(19, 19)
+shape = SubResource("RectangleShape2D_7ohat")
+
+[connection signal="body_entered" from="Ziel" to="." method="_on_ziel_body_entered"]
