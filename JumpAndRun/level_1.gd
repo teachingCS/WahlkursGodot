@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_ziel_body_entered(body):
-	get_tree().change_scene_to_file("res://level_2.tscn")
+	if (body.name == "Spieler"):
+		get_tree().change_scene_to_file("res://level_2.tscn")

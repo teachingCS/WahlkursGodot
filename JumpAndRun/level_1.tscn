@@ -1,85 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dubaffnrr6j44"]
+[gd_scene load_steps=5 format=3 uid="uid://dubaffnrr6j44"]
 
-[ext_resource type="Texture2D" uid="uid://c721hlusj5g2j" path="res://icon.svg" id="1_m435i"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_mhrte"]
 [ext_resource type="PackedScene" uid="uid://dox4qdirog56t" path="res://spieler.tscn" id="2_4v35e"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdi4q"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://yo104ug8f207" path="res://tile_map.tscn" id="4_m4bxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ohat"]
-size = Vector2(42, 42)
+size = Vector2(34, 45)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_mhrte")
 
-[node name="Boden" type="Node" parent="."]
-
-[node name="Boden1" type="StaticBody2D" parent="Boden"]
-position = Vector2(1504, 240)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden1"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden1"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
-
-[node name="Boden2" type="StaticBody2D" parent="Boden"]
-position = Vector2(88, 512)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden2"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden2"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
-
-[node name="Boden3" type="StaticBody2D" parent="Boden"]
-position = Vector2(360, 448)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden3"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden3"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
-
-[node name="Boden4" type="StaticBody2D" parent="Boden"]
-position = Vector2(656, 496)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden4"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden4"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
-
-[node name="Boden5" type="StaticBody2D" parent="Boden"]
-position = Vector2(1176, 320)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden5"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden5"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
-
-[node name="Boden6" type="StaticBody2D" parent="Boden"]
-position = Vector2(896, 368)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boden/Boden6"]
-shape = SubResource("RectangleShape2D_mdi4q")
-
-[node name="Sprite2D" type="Sprite2D" parent="Boden/Boden6"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("1_m435i")
+[node name="TileMap" parent="." instance=ExtResource("4_m4bxw")]
+layer_0/tile_data = PackedInt32Array(1966082, 458753, 0, 1966089, 458753, 0, 1179679, 458753, 0, 1179686, 458753, 0, 327822, 5046273, 14, 1179710, 458753, 0, 1179717, 458753, 0, 852059, 458753, 0, 852066, 458753, 0, 1048725, 458753, 0, 1048718, 458753, 0, 1048712, 458753, 0, 1048706, 458753, 0, 983170, 458753, 0, 983176, 458753, 0, 983181, 458753, 0, 983187, 458753, 0, 983191, 458753, 0, 720933, 917505, 28, 524419, 917505, 28, 917574, 6094849, 12, 1638402, 1835009, 31)
 
 [node name="Spieler" parent="." instance=ExtResource("2_4v35e")]
 position = Vector2(96, 80)
@@ -88,13 +20,14 @@ position = Vector2(96, 80)
 position = Vector2(1480, 88)
 metadata/_edit_group_ = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ziel"]
+position = Vector2(15, 14.5)
+shape = SubResource("RectangleShape2D_7ohat")
+
 [node name="ColorRect" type="ColorRect" parent="Ziel"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.690196, 0.556863, 0.34902, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ziel"]
-position = Vector2(19, 19)
-shape = SubResource("RectangleShape2D_7ohat")
 
 [connection signal="body_entered" from="Ziel" to="." method="_on_ziel_body_entered"]
