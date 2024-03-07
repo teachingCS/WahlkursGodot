@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dubaffnrr6j44"]
+[gd_scene load_steps=6 format=3 uid="uid://dubaffnrr6j44"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_mhrte"]
 [ext_resource type="PackedScene" uid="uid://dox4qdirog56t" path="res://spieler.tscn" id="2_4v35e"]
+[ext_resource type="Texture2D" uid="uid://cvdkn330dpyve" path="res://Assets/backgroundColorForest.png" id="4_73dsb"]
 [ext_resource type="PackedScene" uid="uid://yo104ug8f207" path="res://tile_map.tscn" id="4_m4bxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ohat"]
@@ -9,6 +10,19 @@ size = Vector2(34, 45)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_mhrte")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(0, -700)
+scale = Vector2(1.5, 1.5)
+transform = Transform2D(1.5, 0, 0, 1.5, 0, -700)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("4_73dsb")
+centered = false
 
 [node name="TileMap" parent="." instance=ExtResource("4_m4bxw")]
 layer_0/tile_data = PackedInt32Array(1966082, 458753, 0, 1966089, 458753, 0, 1179679, 458753, 0, 1179686, 458753, 0, 327822, 5046273, 14, 1179710, 458753, 0, 1179717, 458753, 0, 852059, 458753, 0, 852066, 458753, 0, 1048725, 458753, 0, 1048718, 458753, 0, 1048712, 458753, 0, 1048706, 458753, 0, 983170, 458753, 0, 983176, 458753, 0, 983181, 458753, 0, 983187, 458753, 0, 983191, 458753, 0, 720933, 917505, 28, 524419, 917505, 28, 917574, 6094849, 12, 1638402, 1835009, 31)
