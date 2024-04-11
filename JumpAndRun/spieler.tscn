@@ -1,20 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://dox4qdirog56t"]
+[gd_scene load_steps=16 format=3 uid="uid://dox4qdirog56t"]
 
 [ext_resource type="Script" path="res://Spieler.gd" id="1_3qrse"]
-[ext_resource type="Texture2D" uid="uid://c721hlusj5g2j" path="res://icon.svg" id="2_eii3q"]
+[ext_resource type="Texture2D" uid="uid://bov7ionvuv8rv" path="res://Assets/Player/alienGreen_stand.png" id="2_dgv5g"]
+[ext_resource type="Texture2D" uid="uid://b21vpughkird3" path="res://Assets/Player/alienGreen_jump.png" id="3_yhxna"]
+[ext_resource type="Texture2D" uid="uid://crvma1e88tlln" path="res://Assets/Player/alienGreen_walk1.png" id="4_vr6dn"]
+[ext_resource type="Texture2D" uid="uid://cuwqqf88jn8cq" path="res://Assets/Player/alienGreen_walk2.png" id="5_b5oyn"]
+[ext_resource type="Texture2D" uid="uid://4vrw3xlyeh7v" path="res://Assets/Player/star.png" id="6_t433v"]
+[ext_resource type="Texture2D" uid="uid://bgjamgw7y7f6i" path="res://Assets/Player/dirt.png" id="7_tkbio"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiuae"]
-size = Vector2(128, 128)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb7ti"]
+radius = 49.67
+height = 157.02
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71y81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dgv5g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yhxna")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vr6dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b5oyn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_h21w1"]
+colors = PackedColorArray(0.639412, 0.562626, 0.113398, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfk8h"]
+gradient = SubResource("Gradient_h21w1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hapwj"]
+particle_flag_disable_z = true
+angular_velocity_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+color = Color(1, 1, 0.623529, 1)
+color_ramp = SubResource("GradientTexture1D_sfk8h")
+
+[sub_resource type="Gradient" id="Gradient_swqhj"]
+offsets = PackedFloat32Array(0, 0.695341, 1)
+colors = PackedColorArray(1, 0.815744, 0.436171, 1, 0.565969, 0, 0.17432, 1, 0.190762, 0.190762, 0.190762, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6abt"]
+gradient = SubResource("Gradient_swqhj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7fomk"]
+particle_flag_disable_z = true
+orbit_velocity_min = -1.054
+orbit_velocity_max = 0.886
+gravity = Vector3(0, -60, 0)
+color_ramp = SubResource("GradientTexture1D_g6abt")
 
 [node name="Spieler" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_3qrse")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_eii3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fiuae")
+shape = SubResource("CapsuleShape2D_xb7ti")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_71y81")
+animation = &"idle"
+frame_progress = 0.675447
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+process_material = SubResource("ParticleProcessMaterial_hapwj")
+texture = ExtResource("6_t433v")
+lifetime = 0.5
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_7fomk")
+texture = ExtResource("7_tkbio")
